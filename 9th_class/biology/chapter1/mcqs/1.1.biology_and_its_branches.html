@@ -1,0 +1,915 @@
+<html class=""><head>
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" type="image/png" href="/images/icon.png">
+    <title>Generate Paper - PTS</title>
+    <link href="/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/plugins/MDBootstrap/css/mdb.min.css" rel="stylesheet">
+    <link href="/plugins/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <link href="/plugins/Theme/Theme.css" rel="stylesheet">
+    <link href="/plugins/fa/css/all.min.css" rel="stylesheet">
+    <link href="/plugins/toastr/toastr.min.css" rel="stylesheet">
+    <link href="/plugins/SweetAlert2/sweetalert2.min.css" rel="stylesheet">
+    <link href="/plugins/bootstrap-multiselect/bootstrap-multiselect.css" rel="stylesheet">
+    <link href="/css/GeneratePaperV7.css" rel="stylesheet">
+    <link href="/css/PrintPaperV7.css" rel="stylesheet">
+    <link rel="preload" as="font" href="/fonts/Jameel Noori Nastaleeq.ttf" type="font/ttf" crossorigin="anonymous">
+<style>INPUT:-webkit-autofill,SELECT:-webkit-autofill,TEXTAREA:-webkit-autofill{animation-name:onautofillstart}INPUT:not(:-webkit-autofill),SELECT:not(:-webkit-autofill),TEXTAREA:not(:-webkit-autofill){animation-name:onautofillcancel}@keyframes onautofillstart{}@keyframes onautofillcancel{}</style><style>.swal2-popup.swal2-toast{flex-direction:row;align-items:center;width:auto;padding:.625em;overflow-y:hidden;background:#fff;box-shadow:0 0 .625em #d9d9d9}.swal2-popup.swal2-toast .swal2-header{flex-direction:row;padding:0}.swal2-popup.swal2-toast .swal2-title{flex-grow:1;justify-content:flex-start;margin:0 .6em;font-size:1em}.swal2-popup.swal2-toast .swal2-footer{margin:.5em 0 0;padding:.5em 0 0;font-size:.8em}.swal2-popup.swal2-toast .swal2-close{position:static;width:.8em;height:.8em;line-height:.8}.swal2-popup.swal2-toast .swal2-content{justify-content:flex-start;padding:0;font-size:1em}.swal2-popup.swal2-toast .swal2-icon{width:2em;min-width:2em;height:2em;margin:0}.swal2-popup.swal2-toast .swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:1.8em;font-weight:700}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-popup.swal2-toast .swal2-icon .swal2-icon-content{font-size:.25em}}.swal2-popup.swal2-toast .swal2-icon.swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line]{top:.875em;width:1.375em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:.3125em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:.3125em}.swal2-popup.swal2-toast .swal2-actions{flex-basis:auto!important;width:auto;height:auto;margin:0 .3125em}.swal2-popup.swal2-toast .swal2-styled{margin:0 .3125em;padding:.3125em .625em;font-size:1em}.swal2-popup.swal2-toast .swal2-styled:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(50,100,150,.4)}.swal2-popup.swal2-toast .swal2-success{border-color:#a5dc86}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line]{position:absolute;width:1.6em;height:3em;transform:rotate(45deg);border-radius:50%}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.8em;left:-.5em;transform:rotate(-45deg);transform-origin:2em 2em;border-radius:4em 0 0 4em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.25em;left:.9375em;transform-origin:0 1.5em;border-radius:0 4em 4em 0}.swal2-popup.swal2-toast .swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-success .swal2-success-fix{top:0;left:.4375em;width:.4375em;height:2.6875em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line]{height:.3125em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=tip]{top:1.125em;left:.1875em;width:.75em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=long]{top:.9375em;right:.1875em;width:1.375em}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-tip{-webkit-animation:swal2-toast-animate-success-line-tip .75s;animation:swal2-toast-animate-success-line-tip .75s}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-long{-webkit-animation:swal2-toast-animate-success-line-long .75s;animation:swal2-toast-animate-success-line-long .75s}.swal2-popup.swal2-toast.swal2-show{-webkit-animation:swal2-toast-show .5s;animation:swal2-toast-show .5s}.swal2-popup.swal2-toast.swal2-hide{-webkit-animation:swal2-toast-hide .1s forwards;animation:swal2-toast-hide .1s forwards}.swal2-container{display:flex;position:fixed;z-index:1060;top:0;right:0;bottom:0;left:0;flex-direction:row;align-items:center;justify-content:center;padding:.625em;overflow-x:hidden;transition:background-color .1s;-webkit-overflow-scrolling:touch}.swal2-container.swal2-backdrop-show,.swal2-container.swal2-noanimation{background:rgba(0,0,0,.4)}.swal2-container.swal2-backdrop-hide{background:0 0!important}.swal2-container.swal2-top{align-items:flex-start}.swal2-container.swal2-top-left,.swal2-container.swal2-top-start{align-items:flex-start;justify-content:flex-start}.swal2-container.swal2-top-end,.swal2-container.swal2-top-right{align-items:flex-start;justify-content:flex-end}.swal2-container.swal2-center{align-items:center}.swal2-container.swal2-center-left,.swal2-container.swal2-center-start{align-items:center;justify-content:flex-start}.swal2-container.swal2-center-end,.swal2-container.swal2-center-right{align-items:center;justify-content:flex-end}.swal2-container.swal2-bottom{align-items:flex-end}.swal2-container.swal2-bottom-left,.swal2-container.swal2-bottom-start{align-items:flex-end;justify-content:flex-start}.swal2-container.swal2-bottom-end,.swal2-container.swal2-bottom-right{align-items:flex-end;justify-content:flex-end}.swal2-container.swal2-bottom-end>:first-child,.swal2-container.swal2-bottom-left>:first-child,.swal2-container.swal2-bottom-right>:first-child,.swal2-container.swal2-bottom-start>:first-child,.swal2-container.swal2-bottom>:first-child{margin-top:auto}.swal2-container.swal2-grow-fullscreen>.swal2-modal{display:flex!important;flex:1;align-self:stretch;justify-content:center}.swal2-container.swal2-grow-row>.swal2-modal{display:flex!important;flex:1;align-content:center;justify-content:center}.swal2-container.swal2-grow-column{flex:1;flex-direction:column}.swal2-container.swal2-grow-column.swal2-bottom,.swal2-container.swal2-grow-column.swal2-center,.swal2-container.swal2-grow-column.swal2-top{align-items:center}.swal2-container.swal2-grow-column.swal2-bottom-left,.swal2-container.swal2-grow-column.swal2-bottom-start,.swal2-container.swal2-grow-column.swal2-center-left,.swal2-container.swal2-grow-column.swal2-center-start,.swal2-container.swal2-grow-column.swal2-top-left,.swal2-container.swal2-grow-column.swal2-top-start{align-items:flex-start}.swal2-container.swal2-grow-column.swal2-bottom-end,.swal2-container.swal2-grow-column.swal2-bottom-right,.swal2-container.swal2-grow-column.swal2-center-end,.swal2-container.swal2-grow-column.swal2-center-right,.swal2-container.swal2-grow-column.swal2-top-end,.swal2-container.swal2-grow-column.swal2-top-right{align-items:flex-end}.swal2-container.swal2-grow-column>.swal2-modal{display:flex!important;flex:1;align-content:center;justify-content:center}.swal2-container.swal2-no-transition{transition:none!important}.swal2-container:not(.swal2-top):not(.swal2-top-start):not(.swal2-top-end):not(.swal2-top-left):not(.swal2-top-right):not(.swal2-center-start):not(.swal2-center-end):not(.swal2-center-left):not(.swal2-center-right):not(.swal2-bottom):not(.swal2-bottom-start):not(.swal2-bottom-end):not(.swal2-bottom-left):not(.swal2-bottom-right):not(.swal2-grow-fullscreen)>.swal2-modal{margin:auto}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-container .swal2-modal{margin:0!important}}.swal2-popup{display:none;position:relative;box-sizing:border-box;flex-direction:column;justify-content:center;width:32em;max-width:100%;padding:1.25em;border:none;border-radius:.3125em;background:#fff;font-family:inherit;font-size:1rem}.swal2-popup:focus{outline:0}.swal2-popup.swal2-loading{overflow-y:hidden}.swal2-header{display:flex;flex-direction:column;align-items:center;padding:0 1.8em}.swal2-title{position:relative;max-width:100%;margin:0 0 .4em;padding:0;color:#595959;font-size:1.875em;font-weight:600;text-align:center;text-transform:none;word-wrap:break-word}.swal2-actions{display:flex;z-index:1;flex-wrap:wrap;align-items:center;justify-content:center;width:100%;margin:1.25em auto 0}.swal2-actions:not(.swal2-loading) .swal2-styled[disabled]{opacity:.4}.swal2-actions:not(.swal2-loading) .swal2-styled:hover{background-image:linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.1))}.swal2-actions:not(.swal2-loading) .swal2-styled:active{background-image:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2))}.swal2-actions.swal2-loading .swal2-styled.swal2-confirm{box-sizing:border-box;width:2.5em;height:2.5em;margin:.46875em;padding:0;-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;border:.25em solid transparent;border-radius:100%;border-color:transparent;background-color:transparent!important;color:transparent!important;cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.swal2-actions.swal2-loading .swal2-styled.swal2-cancel{margin-right:30px;margin-left:30px}.swal2-actions.swal2-loading :not(.swal2-styled).swal2-confirm::after{content:"";display:inline-block;width:15px;height:15px;margin-left:5px;-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;border:3px solid #999;border-radius:50%;border-right-color:transparent;box-shadow:1px 1px 1px #fff}.swal2-styled{margin:.3125em;padding:.625em 2em;box-shadow:none;font-weight:500}.swal2-styled:not([disabled]){cursor:pointer}.swal2-styled.swal2-confirm{border:0;border-radius:.25em;background:initial;background-color:#3085d6;color:#fff;font-size:1.0625em}.swal2-styled.swal2-cancel{border:0;border-radius:.25em;background:initial;background-color:#aaa;color:#fff;font-size:1.0625em}.swal2-styled:focus{outline:0;box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(50,100,150,.4)}.swal2-styled::-moz-focus-inner{border:0}.swal2-footer{justify-content:center;margin:1.25em 0 0;padding:1em 0 0;border-top:1px solid #eee;color:#545454;font-size:1em}.swal2-timer-progress-bar-container{position:absolute;right:0;bottom:0;left:0;height:.25em;overflow:hidden;border-bottom-right-radius:.3125em;border-bottom-left-radius:.3125em}.swal2-timer-progress-bar{width:100%;height:.25em;background:rgba(0,0,0,.2)}.swal2-image{max-width:100%;margin:1.25em auto}.swal2-close{position:absolute;z-index:2;top:0;right:0;align-items:center;justify-content:center;width:1.2em;height:1.2em;padding:0;overflow:hidden;transition:color .1s ease-out;border:none;border-radius:0;background:0 0;color:#ccc;font-family:serif;font-size:2.5em;line-height:1.2;cursor:pointer}.swal2-close:hover{transform:none;background:0 0;color:#f27474}.swal2-close::-moz-focus-inner{border:0}.swal2-content{z-index:1;justify-content:center;margin:0;padding:0 1.6em;color:#545454;font-size:1.125em;font-weight:400;line-height:normal;text-align:center;word-wrap:break-word}.swal2-checkbox,.swal2-file,.swal2-input,.swal2-radio,.swal2-select,.swal2-textarea{margin:1em auto}.swal2-file,.swal2-input,.swal2-textarea{box-sizing:border-box;width:100%;transition:border-color .3s,box-shadow .3s;border:1px solid #d9d9d9;border-radius:.1875em;background:inherit;box-shadow:inset 0 1px 1px rgba(0,0,0,.06);color:inherit;font-size:1.125em}.swal2-file.swal2-inputerror,.swal2-input.swal2-inputerror,.swal2-textarea.swal2-inputerror{border-color:#f27474!important;box-shadow:0 0 2px #f27474!important}.swal2-file:focus,.swal2-input:focus,.swal2-textarea:focus{border:1px solid #b4dbed;outline:0;box-shadow:0 0 3px #c4e6f5}.swal2-file::-moz-placeholder,.swal2-input::-moz-placeholder,.swal2-textarea::-moz-placeholder{color:#ccc}.swal2-file:-ms-input-placeholder,.swal2-input:-ms-input-placeholder,.swal2-textarea:-ms-input-placeholder{color:#ccc}.swal2-file::-ms-input-placeholder,.swal2-input::-ms-input-placeholder,.swal2-textarea::-ms-input-placeholder{color:#ccc}.swal2-file::placeholder,.swal2-input::placeholder,.swal2-textarea::placeholder{color:#ccc}.swal2-range{margin:1em auto;background:#fff}.swal2-range input{width:80%}.swal2-range output{width:20%;color:inherit;font-weight:600;text-align:center}.swal2-range input,.swal2-range output{height:2.625em;padding:0;font-size:1.125em;line-height:2.625em}.swal2-input{height:2.625em;padding:0 .75em}.swal2-input[type=number]{max-width:10em}.swal2-file{background:inherit;font-size:1.125em}.swal2-textarea{height:6.75em;padding:.75em}.swal2-select{min-width:50%;max-width:100%;padding:.375em .625em;background:inherit;color:inherit;font-size:1.125em}.swal2-checkbox,.swal2-radio{align-items:center;justify-content:center;background:#fff;color:inherit}.swal2-checkbox label,.swal2-radio label{margin:0 .6em;font-size:1.125em}.swal2-checkbox input,.swal2-radio input{margin:0 .4em}.swal2-validation-message{display:none;align-items:center;justify-content:center;padding:.625em;overflow:hidden;background:#f0f0f0;color:#666;font-size:1em;font-weight:300}.swal2-validation-message::before{content:"!";display:inline-block;width:1.5em;min-width:1.5em;height:1.5em;margin:0 .625em;border-radius:50%;background-color:#f27474;color:#fff;font-weight:600;line-height:1.5em;text-align:center}.swal2-icon{position:relative;box-sizing:content-box;justify-content:center;width:5em;height:5em;margin:1.25em auto 1.875em;border:.25em solid transparent;border-radius:50%;font-family:inherit;line-height:5em;cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:3.75em}.swal2-icon.swal2-error{border-color:#f27474;color:#f27474}.swal2-icon.swal2-error .swal2-x-mark{position:relative;flex-grow:1}.swal2-icon.swal2-error [class^=swal2-x-mark-line]{display:block;position:absolute;top:2.3125em;width:2.9375em;height:.3125em;border-radius:.125em;background-color:#f27474}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:1.0625em;transform:rotate(45deg)}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:1em;transform:rotate(-45deg)}.swal2-icon.swal2-error.swal2-icon-show{-webkit-animation:swal2-animate-error-icon .5s;animation:swal2-animate-error-icon .5s}.swal2-icon.swal2-error.swal2-icon-show .swal2-x-mark{-webkit-animation:swal2-animate-error-x-mark .5s;animation:swal2-animate-error-x-mark .5s}.swal2-icon.swal2-warning{border-color:#facea8;color:#f8bb86}.swal2-icon.swal2-info{border-color:#9de0f6;color:#3fc3ee}.swal2-icon.swal2-question{border-color:#c9dae1;color:#87adbd}.swal2-icon.swal2-success{border-color:#a5dc86;color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-circular-line]{position:absolute;width:3.75em;height:7.5em;transform:rotate(45deg);border-radius:50%}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.4375em;left:-2.0635em;transform:rotate(-45deg);transform-origin:3.75em 3.75em;border-radius:7.5em 0 0 7.5em}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.6875em;left:1.875em;transform:rotate(-45deg);transform-origin:0 3.75em;border-radius:0 7.5em 7.5em 0}.swal2-icon.swal2-success .swal2-success-ring{position:absolute;z-index:2;top:-.25em;left:-.25em;box-sizing:content-box;width:100%;height:100%;border:.25em solid rgba(165,220,134,.3);border-radius:50%}.swal2-icon.swal2-success .swal2-success-fix{position:absolute;z-index:1;top:.5em;left:1.625em;width:.4375em;height:5.625em;transform:rotate(-45deg)}.swal2-icon.swal2-success [class^=swal2-success-line]{display:block;position:absolute;z-index:2;height:.3125em;border-radius:.125em;background-color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-line][class$=tip]{top:2.875em;left:.8125em;width:1.5625em;transform:rotate(45deg)}.swal2-icon.swal2-success [class^=swal2-success-line][class$=long]{top:2.375em;right:.5em;width:2.9375em;transform:rotate(-45deg)}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-tip{-webkit-animation:swal2-animate-success-line-tip .75s;animation:swal2-animate-success-line-tip .75s}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-long{-webkit-animation:swal2-animate-success-line-long .75s;animation:swal2-animate-success-line-long .75s}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-circular-line-right{-webkit-animation:swal2-rotate-success-circular-line 4.25s ease-in;animation:swal2-rotate-success-circular-line 4.25s ease-in}.swal2-progress-steps{align-items:center;margin:0 0 1.25em;padding:0;background:inherit;font-weight:600}.swal2-progress-steps li{display:inline-block;position:relative}.swal2-progress-steps .swal2-progress-step{z-index:20;width:2em;height:2em;border-radius:2em;background:#3085d6;color:#fff;line-height:2em;text-align:center}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step{background:#3085d6}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step{background:#add8e6;color:#fff}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step-line{background:#add8e6}.swal2-progress-steps .swal2-progress-step-line{z-index:10;width:2.5em;height:.4em;margin:0 -1px;background:#3085d6}[class^=swal2]{-webkit-tap-highlight-color:transparent}.swal2-show{-webkit-animation:swal2-show .3s;animation:swal2-show .3s}.swal2-hide{-webkit-animation:swal2-hide .15s forwards;animation:swal2-hide .15s forwards}.swal2-noanimation{transition:none}.swal2-scrollbar-measure{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll}.swal2-rtl .swal2-close{right:auto;left:0}.swal2-rtl .swal2-timer-progress-bar{right:0;left:auto}@supports (-ms-accelerator:true){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@-moz-document url-prefix(){.swal2-close:focus{outline:2px solid rgba(50,100,150,.4)}}@-webkit-keyframes swal2-toast-show{0%{transform:translateY(-.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0)}}@keyframes swal2-toast-show{0%{transform:translateY(-.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0)}}@-webkit-keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@-webkit-keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@-webkit-keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@-webkit-keyframes swal2-show{0%{transform:scale(.7)}45%{transform:scale(1.05)}80%{transform:scale(.95)}100%{transform:scale(1)}}@keyframes swal2-show{0%{transform:scale(.7)}45%{transform:scale(1.05)}80%{transform:scale(.95)}100%{transform:scale(1)}}@-webkit-keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(.5);opacity:0}}@keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(.5);opacity:0}}@-webkit-keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@-webkit-keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@-webkit-keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@-webkit-keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(.4);opacity:0}50%{margin-top:1.625em;transform:scale(.4);opacity:0}80%{margin-top:-.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(.4);opacity:0}50%{margin-top:1.625em;transform:scale(.4);opacity:0}80%{margin-top:-.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@-webkit-keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0);opacity:1}}@keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0);opacity:1}}@-webkit-keyframes swal2-rotate-loading{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}@keyframes swal2-rotate-loading{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow:hidden}body.swal2-height-auto{height:auto!important}body.swal2-no-backdrop .swal2-container{top:auto;right:auto;bottom:auto;left:auto;max-width:calc(100% - .625em * 2);background-color:transparent!important}body.swal2-no-backdrop .swal2-container>.swal2-modal{box-shadow:0 0 10px rgba(0,0,0,.4)}body.swal2-no-backdrop .swal2-container.swal2-top{top:0;left:50%;transform:translateX(-50%)}body.swal2-no-backdrop .swal2-container.swal2-top-left,body.swal2-no-backdrop .swal2-container.swal2-top-start{top:0;left:0}body.swal2-no-backdrop .swal2-container.swal2-top-end,body.swal2-no-backdrop .swal2-container.swal2-top-right{top:0;right:0}body.swal2-no-backdrop .swal2-container.swal2-center{top:50%;left:50%;transform:translate(-50%,-50%)}body.swal2-no-backdrop .swal2-container.swal2-center-left,body.swal2-no-backdrop .swal2-container.swal2-center-start{top:50%;left:0;transform:translateY(-50%)}body.swal2-no-backdrop .swal2-container.swal2-center-end,body.swal2-no-backdrop .swal2-container.swal2-center-right{top:50%;right:0;transform:translateY(-50%)}body.swal2-no-backdrop .swal2-container.swal2-bottom{bottom:0;left:50%;transform:translateX(-50%)}body.swal2-no-backdrop .swal2-container.swal2-bottom-left,body.swal2-no-backdrop .swal2-container.swal2-bottom-start{bottom:0;left:0}body.swal2-no-backdrop .swal2-container.swal2-bottom-end,body.swal2-no-backdrop .swal2-container.swal2-bottom-right{right:0;bottom:0}@media print{body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow-y:scroll!important}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown)>[aria-hidden=true]{display:none}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) .swal2-container{position:static!important}}body.swal2-toast-shown .swal2-container{background-color:transparent}body.swal2-toast-shown .swal2-container.swal2-top{top:0;right:auto;bottom:auto;left:50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-top-end,body.swal2-toast-shown .swal2-container.swal2-top-right{top:0;right:0;bottom:auto;left:auto}body.swal2-toast-shown .swal2-container.swal2-top-left,body.swal2-toast-shown .swal2-container.swal2-top-start{top:0;right:auto;bottom:auto;left:0}body.swal2-toast-shown .swal2-container.swal2-center-left,body.swal2-toast-shown .swal2-container.swal2-center-start{top:50%;right:auto;bottom:auto;left:0;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-center{top:50%;right:auto;bottom:auto;left:50%;transform:translate(-50%,-50%)}body.swal2-toast-shown .swal2-container.swal2-center-end,body.swal2-toast-shown .swal2-container.swal2-center-right{top:50%;right:0;bottom:auto;left:auto;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-left,body.swal2-toast-shown .swal2-container.swal2-bottom-start{top:auto;right:auto;bottom:0;left:0}body.swal2-toast-shown .swal2-container.swal2-bottom{top:auto;right:auto;bottom:0;left:50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-end,body.swal2-toast-shown .swal2-container.swal2-bottom-right{top:auto;right:0;bottom:0;left:auto}body.swal2-toast-column .swal2-toast{flex-direction:column;align-items:stretch}body.swal2-toast-column .swal2-toast .swal2-actions{flex:1;align-self:stretch;height:2.2em;margin-top:.3125em}body.swal2-toast-column .swal2-toast .swal2-loading{justify-content:center}body.swal2-toast-column .swal2-toast .swal2-input{height:2em;margin:.3125em auto;font-size:1em}body.swal2-toast-column .swal2-toast .swal2-validation-message{font-size:1em}</style></head>
+<body style="background-color: rgb(245, 245, 245); overflow: hidden; padding-right: 0px;" oncontextmenu="return false" ondragstart="return false;" ondrop="return false;" class="modal-open">
+    <!-- preloader -->
+    <div class="pp-loader" style="display: none;">
+        <div class="pp-loader-inner">
+            <img src="/images/Preloader.gif">
+        </div>
+    </div>
+
+    <div class="vertical-nav" id="sidebar">
+        <p style="text-align:center; color:#000; font-weight:bold; font-size:12pt; margin-bottom:0px; padding-top:5px; transform:scaleY(1.2);">PAK TEST SOLUTION</p>
+        <p style="text-align:center; color:#000; font-weight:bold; font-size:9pt; transform:scaleY(1.2);">VERSION 8.0</p>
+        <div class="text-center" style="color:#000; margin-top:40px;">
+            <img src="/images/Schools/638385067424487183.jpg" alt="..." width="75" height="80">
+            <h6 class="m-0 mt-1" style="font-size:9pt; font-weight:bold; transform:scaleY(1.2);">BABAR LOUIS</h6>
+            <p class="mb-0" style="font-size:9pt;">Administrator</p>
+            <hr style="margin:10px 0px 10px 0px">
+        </div>
+        <div id="sidebar-icons">
+            <ul class="nav flex-column mb-0" id="menu">
+                <li class="nav-item">
+                    <a onclick="ResetAll()" data-bs-toggle="modal" data-bs-target="#QuestionsModal" class="nav-link" style="font-size:1.1em; font-weight:500;">
+                        <i class="fa-light fa-bars fa-fw text-success"></i>Question's Menu
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a onclick="content_editable()" class="nav-link" style="font-size:1.1em; font-weight:500;">
+                        <i class="fa-light fa-edit fa-fw text-success"></i>Manual Editing
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a onclick="return PrintPaperSingle();" class="nav-link" style="font-size:1.1em; font-weight:500;">
+                        <i class="fa-light fa-print fa-fw text-success"></i>Print Paper Single
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a onclick="return PrintPaperDouble();" class="nav-link" style="font-size:1.1em; font-weight:500;">
+                        <i class="fa-light fa-print fa-fw text-success"></i>Print Paper Double
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a onclick="return PrintPaperHalf();" class="nav-link" style="font-size:1.1em; font-weight:500;">
+                        <i class="fa-light fa-print fa-fw text-success"></i>Print Paper Half
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a data-bs-toggle="modal" data-bs-target="#SaveModal" class="nav-link" style="font-size:1.1em; font-weight:500;">
+                        <i class="fa-light fa-save fa-fw text-success"></i>Save Paper
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/SchoolAuth/Dashboard" onclick="return confirm('Are you sure you want to cancel paper?');" class="nav-link" style="color:#ff0000; font-size:1.1em; font-weight:500;">
+                        <i class="fa-light fa-trash-alt fa-fw text-danger"></i>Cancel Paper
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="page-content" id="content">
+        <nav class="navbar" style="background-color:#FFF; box-shadow:2px 2px 2px 2px rgb(219 219 219 / 0.60);">
+            <div class="container-fluid">
+                <button id="sidebarcollapse" style="color:#000; text-align:left; outline:none; border:none; background:none;" type="button"><i class="fa-light fa-bars"></i></button>
+                <div style="display:table-cell;">
+                    <p class="p-0 m-0 fw-bold text-dark text-right">TRUST SCHOOL SYSTEM AND ACADEMY</p>
+                    <p class="p-0 m-0 text-right" style="font-size:8pt; color:#808080;">MAIN SUI GAS ROAD, NIZAM PURA DHAKKA </p>
+                </div>
+            </div>
+        </nav>
+
+        <form method="post" id="myform" action="/GeneratePaper/SavePaper">
+                <input type="hidden" name="ClassID" value="9">
+                <input type="hidden" id="SubjectID" name="SubjectID" value="43">
+                <input type="hidden" name="ChapterIDs" value="5995">
+                <input type="hidden" name="TopicIDs" value="10420">
+                <input type="hidden" id="PaperHtml" name="PaperHtml">
+                <input type="hidden" id="AnswersHtml" name="AnswersHtml">
+                <input type="hidden" id="PaperID" name="PaperID" value="0">
+                <input type="hidden" name="SchoolID" value="710">
+                <input type="hidden" id="TotalMCQS" name="TotalMCQS" value="0">
+                <input type="hidden" id="SyllabusHtml" name="SyllabusHtml" value="CHAP 1">
+            <section class="p-3 m-3">
+                    <div style="position:fixed; top:0; left:0; right:0; bottom:0; width:100%; height:100%; Z-INDEX:-1; "><img src="/images/Schools/638385069707240143.png" style="width:100%; height:100%" alt="Watermark"></div>
+
+                <div id="QuestionPanelDiv" class="editable_content" style="z-index: 1; border-style: none;" contenteditable="false">
+                </div>
+
+                <div id="AnswerPanelDiv">
+                        <div class="row">
+                            <div class="col-12" id="MultiAnswerSheet"></div>
+                            <div class="col-12" id="TrueFalseAnswerSheet"></div>
+                            <div class="col-12" id="FillBlankAnswerSheet"></div>
+                        </div>
+                </div>
+            </section>
+
+            <!-- Save Paper Modal -->
+            <div class="modal fade" id="SaveModal" tabindex="-1" style="display: none;" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary text-white" style="max-height:30px">
+                            <h6 class="modal-title">Save Paper</h6>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="mb-2">
+                                        <label class="form-label">Paper Name <span>*</span></label>
+                                        <input type="text" class="form-control" name="PaperName" required="">
+                                    </div>
+                                    <div class="mb-2">
+                                        <label class="form-label">Paper Date <span>*</span></label>
+                                        <input type="text" class="form-control datepicker" name="PaperDate" required="" onkeypress="javascript:return isNumber(window.event)">
+                                    </div>
+                                    <div class="mb-2">
+                                        <label class="form-label">Time Allowed <span>*</span></label>
+                                        <input type="text" class="form-control" name="TimeAllowed" required="">
+                                    </div>
+                                    <div class="mb-2">
+                                        <label class="form-label">Total Marks <span>*</span></label>
+                                        <input type="text" class="form-control" name="TotalMarks" id="TotalMarks" value="0" required="" onkeypress="javascript:return isNumber(window.event)">
+                                    </div>
+                                    <div class="mt-1 float-end">
+                                        <button type="submit" class="btn btn-sm btn-primary" onclick="SavePaper();">
+                                            <span class="fa-light fa-plus"></span>
+                                            Save Paper
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <input name="__RequestVerificationToken" type="hidden" value="CfDJ8Cs9XGnXAahGmx_kGvuuNafeVo12jxG6Xmb_-y17YdLbxP4qB6ZdH-Qux35FTdJ1pZ8-ahcD4sVv0tN-_emW2Xws_nqr8TNus09r1sohuquk1ah50M2NcixGjMnS9OdwuSbCqK0AKgEbbGa0Y1cCpBA4Yx2jNGKJF7vdZNjnNJB7C4pat6scBkCaxHlG67ALyQ"></form>
+    </div>
+
+    <!-- Get Questions Modal -->
+    <div class="modal fade show" id="QuestionsModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" style="display: block;" aria-modal="true" role="dialog">
+        <div class="modal-dialog modal-lg" style="width:80% !important; max-width:80% !important;">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white" style="max-height:30px">
+                    <p class="modal-title" style="padding:0px; margin:0px;">Select Your Questions Here.... 9TH - Biology </p>
+                    <button type="button" class="btn-close btn-close-white" onclick="closeQuestionsModal();" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row" style="margin-bottom:20px;">
+                        <div class="col-2 text-center">
+                            <img src="/Images/Subjects/637341206781580074.jpg" class="img-thumbnail embed-responsive-item" height="120" width="120">
+                        </div>
+                        <div class="col-10 ChaptersDiv">
+                                <div class="row">
+                                    <ul class="list-inline">
+                                            <li class="list-inline-item mb-1 col-5">
+                                                <input type="checkbox" class="form-check-input Chapters" id="5995" value="5995" checked="checked" onclick="Parent()">
+                                                <label class="form-check-label" for="5995">CHAP 1: The Science of Biology</label>
+                                                <ul class="list-inline" style="display:none;">
+                                                            <li>
+                                                                <input type="checkbox" class="form-check-input Topics" id="10420" value="10420" checked="checked">
+                                                                <label class="form-check-label" for="10420">Biology and its Branches</label>
+                                                            </li>
+                                                </ul>
+                                            </li>
+                                    </ul>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="row" style="padding: 5px 0px 5px 0px;">
+                        <div class="col-9">
+                            <div class="row" style="background-color: rgba(226, 226, 226, 0.4);">
+                                <div class="col-4 mb-1">
+                                    <select class="form-control-sm col-12" id="QuestionTypes" name="QuestionTypes" required="required" autocompleted=""><option value="">Select Question Type</option>
+<option value="1">Multiple Options (چارممکنہ جوابات)</option>
+<option value="12">Short Questions (مختصر سوالات)</option>
+<option value="13">Long Questions (تفصیلاً سوالات)</option>
+</select>
+                                </div>
+                                <div class="col-4 mb-1">
+                                    <div style="border:1px solid #000;">
+                                        <span class="multiselect-native-select"><select class="col-12" id="QuestionPeriority" multiple="multiple" name="QuestionPeriority"><option value="1">Exercise</option>
+<option value="3">Additional</option>
+</select><div class="btn-group" style="width: 100%;"><button type="button" class="multiselect dropdown-bs-toggle btn btn-default" data-bs-toggle="dropdown" style="height: 1.8rem; width: 100%; background-color: rgb(255, 255, 255); text-align: left; padding-top: 0px; padding-bottom: 0px; overflow: hidden; text-overflow: ellipsis;" title="Exercise, Additional" aria-expanded="false"><span class="multiselect-selected-text">All selected (2)</span> <i class="fa fa-chevron-down" style="float:right; font-weight:bolder; font-size:.7rem; padding-top:5px;"></i></button><ul class="multiselect-container dropdown-menu" style=""><li class="multiselect-item multiselect-all active"><a tabindex="0" class="multiselect-all"><label class="checkbox"><input type="checkbox" value="multiselect-all" autocompleted="">  Select all</label></a></li><li class="active"><a tabindex="0"><label class="checkbox" title="Exercise"><input type="checkbox" value="1"> Exercise</label></a></li><li class="active"><a tabindex="0"><label class="checkbox" title="Additional"><input type="checkbox" value="3"> Additional</label></a></li></ul></div></span>
+                                    </div>
+                                </div>
+                                <div class="col-4 mb-1">
+<select class="form-control form-select col-12" id="Mediums" name="Mediums"><option selected="selected" value="1">DUAL MEDIUM</option>
+<option value="2">URDU MEDIUM</option>
+<option value="3">ENGLISH MEDIUM</option>
+</select>                                </div>
+                                <div class="col-2">
+                                    <label style="font-size:9pt; margin-bottom:0px;">Required Questions <span>*</span></label>
+                                    <input type="text" class="form-control-sm col-12" id="TxtRequiredQuestions" style="text-align:center;" onkeypress="javascript:return isNumber(event)">
+                                </div>
+                                <div class="col-2">
+                                    <label style="font-size:9pt; margin-bottom:0px;">Ignore Questions</label>
+                                    <input type="text" class="form-control-sm col-12" id="TxtIgnoreQuestions" style="text-align:center;" onkeypress="javascript:return isNumber(event)">
+                                </div>
+                                <div class="col-2">
+                                    <label style="font-size:9pt; margin-bottom:0px;">Each Q Marks <span>*</span></label>
+                                    <input type="text" class="form-control-sm col-12" id="TxtQuestionMarks" style="text-align:center;" onkeypress="javascript:return isNumber(event)">
+                                </div>
+                                <div class="col-2">
+                                    <label style="font-size:9pt; margin-bottom:0px;">Blank Lines</label>
+                                    <input type="text" class="form-control-sm col-12" id="TxtBlankLines" style="text-align:center;" onkeypress="javascript:return isNumber(event)">
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="2Q">
+                                        <label class="form-check-label" for="2Q">2 Questions Per Line</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="MakeParts">
+                                        <label class="form-check-label" for="MakeParts">Long Questions Parts</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="row">
+                                <div class="col-12">
+                                    <a onclick="GetQuestions(this)" class="col-12 btn btn-sm btn-success text-white" style="cursor: pointer;">SEARCH</a>
+                                </div>
+                                <div class="col-12">
+                                    <p style="text-align:center; font-size:.8rem; margin:0px;">Selected &nbsp;<span style="color:darkgreen" id="counter">0</span> Question(s) From <span style="color:darkgreen" id="Totalcounter">44</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="QuestionDiv" id="chooseQuestionsByChapterIDs"><div class="myrow" style=""><div class="MultipleOptions mycol-12"><div class="row TableHover" id="336263" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>1.</span><p>Which branch of Biology focuses on the study of the structure and function of cells?</p>
+</div><div class="col-6 UrduDiv"><span>1.</span><p>بیالوجی کی کون سی شاخ سیلز کی ساخت اور افعال کا مطالعہ کرتی ہے؟</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="correctAnswer DualMcqs" thiscorrect="1-(A)"><span>(A)</span><div class="Ur"><p>سائٹولوجی</p>
+</div><div class="En"><p>Cytology</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>مائیکروبیالوجی</p>
+</div><div class="En"><p>Microbiology</p>
+</div></li><li class="DualMcqs"><span>(C)</span><div class="Ur"><p>ہسٹالوجی</p>
+</div><div class="En"><p>Histology</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>ایکولوجی</p>
+</div><div class="En"><p>Ecology</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="336264" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>2.</span><p>The study of the processes of heredity and variation in living organisms is known as:</p>
+</div><div class="col-6 UrduDiv"><span>2.</span><p>جانداروں میں وراثت اور تغیریات کا مطالعہ کہلاتا ہے؟</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="correctAnswer DualMcqs" thiscorrect="2-(A)"><span>(A)</span><div class="Ur"><p>ایکولوجی</p>
+</div><div class="En"><p>Ecology</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>جینیٹکس</p>
+</div><div class="En"><p>Genetics</p>
+</div></li><li class="DualMcqs"><span>(C)</span><div class="Ur"><p>ایناٹومی</p>
+</div><div class="En"><p>Anatomy</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>ایمبریولوجی</p>
+</div><div class="En"><p>Embryology</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="336266" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>3.</span><p>Heart pumps blood, stomach digests food and kidneys excrete wastes. The statement comes from:</p>
+</div><div class="col-6 UrduDiv"><span>3.</span><p>دل خون پمپ کرتا ہے، معدہ کھانا ہضم کرتا ہے اور گردے فضلہ نکالتے ہیں۔ یہ بیان کہاں سے آیا ہے؟</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="correctAnswer DualMcqs" thiscorrect="3-(A)"><span>(A)</span><div class="Ur"><p>فزیالوجی</p>
+</div><div class="En"><p>Physiology</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>ایناٹومی</p>
+</div><div class="En"><p>Anatomy</p>
+</div></li><li class="DualMcqs"><span>(C)</span><div class="Ur"><p>مارفولوجی</p>
+</div><div class="En"><p>Morphology</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>ہسٹالوجی</p>
+</div><div class="En"><p>Histology</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="336267" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>4.</span><p>Which branch of Biology involves the study of the classification of organisms?</p>
+</div><div class="col-6 UrduDiv"><span>4.</span><p>بائیولوجی کی کون سی شاخ میں جانداروں کی گروہ بندی ​​​​​​​کا مطالعہ شامل ہے؟</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="correctAnswer DualMcqs" thiscorrect="4-(A)"><span>(A)</span><div class="Ur"><p>ٹیکسونومی</p>
+</div><div class="En"><p>Taxonomy</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>فزیالوجی</p>
+</div><div class="En"><p>Physiology</p>
+</div></li><li class="DualMcqs"><span>(C)</span><div class="Ur"><p>پیلے انٹالوجی</p>
+</div><div class="En"><p>Paleontology</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>بائیو جغرافیائی</p>
+</div><div class="En"><p>Biogeography</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="347652" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>5.</span><p>The study of functions of various organs of an organism is:</p>
+</div><div class="col-6 UrduDiv"><span>5.</span><p>جانداروں کے مختلف اعضاء کے افعال کا مطالعہ ہے:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>مارفولوجی</p>
+</div><div class="En"><p>Morphology</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>ہسٹولوجی</p>
+</div><div class="En"><p>Histology</p>
+</div></li><li class="DualMcqs"><span>(C)</span><div class="Ur"><p>ایناٹومی</p>
+</div><div class="En"><p>Anatomy</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="5-(D)"><span>(D)</span><div class="Ur"><p>فزیالوجی</p>
+</div><div class="En"><p>Physiology</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="336288" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>6.</span><p>Study of internal physical structure of organisms is called:</p>
+</div><div class="col-6 UrduDiv"><span>6.</span><p>جانداروں کی اندرونی جسمانی ساخت کا مطالعہ کہلاتا ہے:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="correctAnswer DualMcqs" thiscorrect="6-(A)"><span>(A)</span><div class="Ur"><p>ایناٹومی</p>
+</div><div class="En"><p>Anatomy</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>فزیالوجی</p>
+</div><div class="En"><p>Physiology</p>
+</div></li><li class="DualMcqs"><span>(C)</span><div class="Ur"><p>&nbsp;ایمبر یو لوجی</p>
+</div><div class="En"><p>Embryology</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>جینیٹکس</p>
+</div><div class="En"><p>Genetics</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="347653" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>7.</span><p>Histology is the microscopic study of:</p>
+</div><div class="col-6 UrduDiv"><span>7.</span><p>ہسٹولوجی کا مائیکروسکوپک مطالعہ ہے:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="correctAnswer DualMcqs" thiscorrect="7-(A)"><span>(A)</span><div class="Ur"><p>ٹشوز</p>
+</div><div class="En"><p>Tissues</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>سیلز</p>
+</div><div class="En"><p>Cells</p>
+</div></li><li class="DualMcqs"><span>(C)</span><div class="Ur"><p>فوسلز</p>
+</div><div class="En"><p>Fossils</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>پودے</p>
+</div><div class="En"><p>Plants</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="336289" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>8.</span><p>In embryology, scientist study:</p>
+</div><div class="col-6 UrduDiv"><span>8.</span><p>ایمبر یالوجی میں سائنسدان مطالعہ کرتے ہیں:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>اعضاء​​​​​​​ اور ٹشوز کا بننا</p>
+</div><div class="En"><p>Organ and tissue formation</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>پیدائشی نقائص کی نشاندہی</p>
+</div><div class="En"><p>Identify birth defects</p>
+</div></li><li class="DualMcqs"><span>(C)</span><div class="Ur"><p>طبی علاج کے طریقے تیار کرنا</p>
+</div><div class="En"><p>Developed medical treatment</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="8-(D)"><span>(D)</span><div class="Ur"><p>مندرجہ بالا تمام</p>
+</div><div class="En"><p>All of the above</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="347654" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>9.</span><p>Paleontology is the study of:</p>
+</div><div class="col-6 UrduDiv"><span>9.</span><p>پیلےانٹولوجی مطالعہ ہے:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>ماحول</p>
+</div><div class="En"><p>Environment</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>نشوونما</p>
+</div><div class="En"><p>Development</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="9-(C)"><span>(C)</span><div class="Ur"><p>فوسلز</p>
+</div><div class="En"><p>Fossils</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>جانوروں</p>
+</div><div class="En"><p>Animals</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="336290" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>10.</span><p>Remains of plants and animals that were preserved in rocks and other geological formations is called:</p>
+</div><div class="col-6 UrduDiv"><span>10.</span><p>پودوں اور جانوروں کی باقیات&nbsp;جو چٹانوں اور دیگر ارضیاتی تشکیلوں میں محفوظ ہیں، کہلاتے ہیں:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>پیتھوجنز</p>
+</div><div class="En"><p>Pathogens</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>ٹاکسنز</p>
+</div><div class="En"><p>Toxins</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="10-(C)"><span>(C)</span><div class="Ur"><p>فوسلز</p>
+</div><div class="En"><p>Fossils</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>پالیوٹینٹس</p>
+</div><div class="En"><p>Pollutants</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="347655" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>11.</span><p>The other name of environmental biology is:</p>
+</div><div class="col-6 UrduDiv"><span>11.</span><p>ماحولیاتی بائیو لوجی کا دوسرا نام ہے:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="correctAnswer DualMcqs" thiscorrect="11-(A)"><span>(A)</span><div class="Ur"><p>ایکالوجی</p>
+</div><div class="En"><p>Ecology</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>بائیو ٹیکنالوجی</p>
+</div><div class="En"><p>Biotechnology</p>
+</div></li><li class="DualMcqs"><span>(C)</span><div class="Ur"><p>مائیکرو بائیو لوجی</p>
+</div><div class="En"><p>Microbiology</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>سیل بائیو لوجی</p>
+</div><div class="En"><p>Cell biology</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="336291" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>12.</span><p>The examination of fossils helps scientists to know the:</p>
+</div><div class="col-6 UrduDiv"><span>12.</span><p>فوسلز کا معائنہ سائنسدانوں کو یہ جاننے میں مدد کرتا ہے:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>زمین کی عمر</p>
+</div><div class="En"><p>The age of earth</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>آب وہوا کے بارے میں</p>
+</div><div class="En"><p>About climate</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="12-(C)"><span>(C)</span><div class="Ur"><p>ارتقائی تاریخ</p>
+</div><div class="En"><p>Evolutionary history</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>ادویات کے بارے میں</p>
+</div><div class="En"><p>About drugs</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="347656" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>13.</span><p>Microbiology is the study of:</p>
+</div><div class="col-6 UrduDiv"><span>13.</span><p>مائیکرو بائیو لوجی مطالعہ ہے:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>فنجائی</p>
+</div><div class="En"><p>Fungi</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>جانور</p>
+</div><div class="En"><p>Animals</p>
+</div></li><li class="DualMcqs"><span>(C)</span><div class="Ur"><p>پودے</p>
+</div><div class="En"><p>Plants</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="13-(D)"><span>(D)</span><div class="Ur"><p>مائیکرو آ رگنزمز</p>
+</div><div class="En"><p>Microorganisms</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="336292" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>14.</span><p>The Branch of biology deals with the classification of organisms into groups on the basis of similarities and differences:</p>
+</div><div class="col-6 UrduDiv"><span>14.</span><p>بائیو لوجی کی وہ شاخ جس میں مماثلت اور اختلافات کی بنیاد پر جانداروں کو گروپوں میں تقسیم کیا جاتا ہے:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>پیلےانٹولوجی</p>
+</div><div class="En"><p>Paleontology</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="14-(B)"><span>(B)</span><div class="Ur"><p>ٹیکسانومی</p>
+</div><div class="En"><p>Taxonomy</p>
+</div></li><li class="DualMcqs"><span>(C)</span><div class="Ur"><p>ایکا لوجی</p>
+</div><div class="En"><p>Ecology</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>ہسٹولوجی</p>
+</div><div class="En"><p>Histology</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="347657" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>15.</span><p>Biology is a word of which language?</p>
+</div><div class="col-6 UrduDiv"><span>15.</span><p>بائیولوجی کس زبان کا لفظ ہے؟</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>لاطینی</p>
+</div><div class="En"><p>Latin</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>عربی</p>
+</div><div class="En"><p>Arabic</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="15-(C)"><span>(C)</span><div class="Ur"><p>یونانی</p>
+</div><div class="En"><p>Greek</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>انگریزی</p>
+</div><div class="En"><p>English</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="336293" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>16.</span><p>The microscopic study of tissues:</p>
+</div><div class="col-6 UrduDiv"><span>16.</span><p>ٹشوز کا خردبینی مطالعہ کہلاتا ہے:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>ایکا لوجی</p>
+</div><div class="En"><p>Ecology</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="16-(B)"><span>(B)</span><div class="Ur"><p>ہسٹولوجی</p>
+</div><div class="En"><p>Histology</p>
+</div></li><li class="DualMcqs"><span>(C)</span><div class="Ur"><p>ایناٹومی</p>
+</div><div class="En"><p>Anatomy</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>ایمبر یو لوجی</p>
+</div><div class="En"><p>Embryology</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="347658" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>17.</span><p>The study of plants is called:</p>
+</div><div class="col-6 UrduDiv"><span>17.</span><p>پودوں کا مطالعہ کہلاتا ہے:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>بائیو لوجی</p>
+</div><div class="En"><p>Biology</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>ذو لوجی</p>
+</div><div class="En"><p>Zoology</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="17-(C)"><span>(C)</span><div class="Ur"><p>باٹنی</p>
+</div><div class="En"><p>Botany</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>مائیکرو بائیو لوجی</p>
+</div><div class="En"><p>Microbiology</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="336294" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>18.</span><p>Genetics is the branch of biology that deals with the study of:</p>
+</div><div class="col-6 UrduDiv"><span>18.</span><p>جینیٹکس بائیو لوجی کی وہ شاخ جس میں مطالعہ کیا جاتا ہے:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>خصوصیات کی منتقلی</p>
+</div><div class="En"><p>Transfer of characters</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>جینیاتی بیماریوں کے اسباب</p>
+</div><div class="En"><p>Cause of genetic diseases</p>
+</div></li><li class="DualMcqs"><span>(C)</span><div class="Ur"><p>نئی سپی شیز</p>
+</div><div class="En"><p>New species</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="18-(D)"><span>(D)</span><div class="Ur"><p>اے اور بی دونوں</p>
+</div><div class="En"><p>Both A and B</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="347659" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>19.</span><p>Match anatomy with one of the following:</p>
+</div><div class="col-6 UrduDiv"><span>19.</span><p>ایناٹومی کو درج ذیل میں سے کسی ایک کے ساتھ جوڑیں:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>فزیالوجی</p>
+</div><div class="En"><p>Physiology</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="19-(B)"><span>(B)</span><div class="Ur"><p>مارفولوجی</p>
+</div><div class="En"><p>Morphology</p>
+</div></li><li class="DualMcqs"><span>(C)</span><div class="Ur"><p>ایمبریولوجی</p>
+</div><div class="En"><p>Embryology</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>جینیٹکس</p>
+</div><div class="En"><p>Genetics</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="336296" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>20.</span><p>Which branch of biology helps to conserve biodiversity and address environmental problems:</p>
+</div><div class="col-6 UrduDiv"><span>20.</span><p>بائیو لوجی کی کونسی شاخ سے جانداروں کے تنوع کو بچانے اور ماحولیاتی مسائل کو حل کرنے میں مدد ملتی ہے:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>ہسٹولوجی</p>
+</div><div class="En"><p>Histology</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>پیلےانٹولوجی</p>
+</div><div class="En"><p>Paleontology</p>
+</div></li><li class="DualMcqs"><span>(C)</span><div class="Ur"><p>ٹیکسانومی</p>
+</div><div class="En"><p>Taxonomy</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="20-(D)"><span>(D)</span><div class="Ur"><p>ایکا لوجی</p>
+</div><div class="En"><p>&nbsp;Ecology</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="347660" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>21.</span><p>Biology is the scientific study of:</p>
+</div><div class="col-6 UrduDiv"><span>21.</span><p>بائیو لوجی سائنسی مطالعہ ہے:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>زمین</p>
+</div><div class="En"><p>Earth</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>پانی</p>
+</div><div class="En"><p>Water</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="21-(C)"><span>(C)</span><div class="Ur"><p>زندگی</p>
+</div><div class="En"><p>Life</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>بے جان اشیاء</p>
+</div><div class="En"><p>None-living things</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="336297" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>22.</span><p>Study of diseases, their causes and effects is called:</p>
+</div><div class="col-6 UrduDiv"><span>22.</span><p>بیماریوں ،ان کے اسباب اور اثرات کا مطالعہ کہلاتا ہے:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>امیونالوجی</p>
+</div><div class="En"><p>Immunology</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="22-(B)"><span>(B)</span><div class="Ur"><p>پیتھا لوجی</p>
+</div><div class="En"><p>Pathology&nbsp;</p>
+</div></li><li class="DualMcqs"><span>(C)</span><div class="Ur"><p>فارماکولوجی</p>
+</div><div class="En"><p>Pharmacology</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>پیلے انٹولوجی</p>
+</div><div class="En"><p>Paleontology</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="347661" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>23.</span><p>The branch deal with the study of form and structure of living organisms is called:</p>
+</div><div class="col-6 UrduDiv"><span>23.</span><p>جانداروں کی شکل اور ساخت کا مطالعہ کرنے والی شاخ کو کہا جاتا ہے:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>سیل بائیولوجی</p>
+</div><div class="En"><p>Cell biology</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>فزیالوجی</p>
+</div><div class="En"><p>Physiology</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="23-(C)"><span>(C)</span><div class="Ur"><p>مارفولوجی</p>
+</div><div class="En"><p>Morphology</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>جینیٹکس</p>
+</div><div class="En"><p>Genetics</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="336298" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>24.</span><p>Pharmacology is the study of:</p>
+</div><div class="col-6 UrduDiv"><span>24.</span><p>فارماکولوجی مطالعہ ہے:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>سمندر</p>
+</div><div class="En"><p>Ocean</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>ٹشوز</p>
+</div><div class="En"><p>Tissues</p>
+</div></li><li class="DualMcqs"><span>(C)</span><div class="Ur"><p>نیوٹرینٹس</p>
+</div><div class="En"><p>Nutrients</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="24-(D)"><span>(D)</span><div class="Ur"><p>ادویات</p>
+</div><div class="En"><p>Drugs</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="347662" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>25.</span><p>The branch which deals with the study of cell division is called:</p>
+</div><div class="col-6 UrduDiv"><span>25.</span><p>وہ شاخ جو سیل ڈویژن کے مطالعہ سے متعلق ہے اسے کہا جاتا ہے:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>فزیالوجی</p>
+</div><div class="En"><p>Physiology</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>ہسٹولوجی</p>
+</div><div class="En"><p>Histology</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="25-(C)"><span>(C)</span><div class="Ur"><p>سیل بائیو لوجی</p>
+</div><div class="En"><p>Cell biology</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>اینٹا مولوجی</p>
+</div><div class="En"><p>Entomology</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="336299" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>26.</span><p>Which of the following support a wide variety of marine life?</p>
+</div><div class="col-6 UrduDiv"><span>26.</span><p>مندرجہ ذیل میں سے کون&nbsp;سمندری زندگی کی وسیع اقسام کی حمایت کرتا ہے؟</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>فوسلز</p>
+</div><div class="En"><p>Fossils</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>پروٹوزوا</p>
+</div><div class="En"><p>Protozoa</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="26-(C)"><span>(C)</span><div class="Ur"><p>کورل ریفز</p>
+</div><div class="En"><p>Coral reefs</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>بیکٹیریا</p>
+</div><div class="En"><p>Bacteria</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="347663" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>27.</span><p>The branch deals with the study of the interrelationship of organisms and their environment is called:</p>
+</div><div class="col-6 UrduDiv"><span>27.</span><p>یہ شاخ جانداروں اور ان کے ماحول کے باہمی تعلق کے مطالعہ سے متعلق ہے کہلاتی ہے:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>بائیو ٹیکنالوجی</p>
+</div><div class="En"><p>Biotechnology</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>مالیکیولر بائیو لوجی</p>
+</div><div class="En"><p>Molecular biology</p>
+</div></li><li class="DualMcqs"><span>(C)</span><div class="Ur"><p>اینٹا مولوجی</p>
+</div><div class="En"><p>Entomology</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="27-(D)"><span>(D)</span><div class="Ur"><p>انوائرمنٹل بائیو لوجی</p>
+</div><div class="En"><p>Environmental biology</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="336300" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>28.</span><p>The word biology has been derived from two words:</p>
+</div><div class="col-6 UrduDiv"><span>28.</span><p>بائیو لوجی کا لفظ دو الفاظ سے آیا ہے:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="correctAnswer DualMcqs" thiscorrect="28-(A)"><span>(A)</span><div class="Ur"><p>یونانی</p>
+</div><div class="En"><p>Greek</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>انگریزی</p>
+</div><div class="En"><p>English</p>
+</div></li><li class="DualMcqs"><span>(C)</span><div class="Ur"><p>لاطینی</p>
+</div><div class="En"><p>Latin</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>ان میں کوئی نہیں</p>
+</div><div class="En"><p>None of these</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="347664" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>29.</span><p>How many major division biology is divided?</p>
+</div><div class="col-6 UrduDiv"><span>29.</span><p>بائیو لوجی کو کتنے بڑے شعبوں میں تقسیم کیا جاتا ہے؟</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="correctAnswer DualMcqs" thiscorrect="29-(A)"><span>(A)</span><div class="Ur"><p>دو</p>
+</div><div class="En"><p>Two</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>تین</p>
+</div><div class="En"><p>Three</p>
+</div></li><li class="DualMcqs"><span>(C)</span><div class="Ur"><p>چار</p>
+</div><div class="En"><p>Four</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>پانچ</p>
+</div><div class="En"><p>Five</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="336301" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>30.</span><p>The study of living things is called:</p>
+</div><div class="col-6 UrduDiv"><span>30.</span><p>جانداروں کا مطالعہ کہلاتا ہے:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>بائیو ٹیکنالوجی</p>
+</div><div class="En"><p>Biotechnology</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="30-(B)"><span>(B)</span><div class="Ur"><p>بائیو لوجی</p>
+</div><div class="En"><p>Biology</p>
+</div></li><li class="DualMcqs"><span>(C)</span><div class="Ur"><p>کیمسٹری</p>
+</div><div class="En"><p>Chemistry</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>فارمنگ</p>
+</div><div class="En"><p>Farming</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="347665" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>31.</span><p>Mr. Nauman was busy in dissecting and analyzing the heart of frog. probably he is a:</p>
+</div><div class="col-6 UrduDiv"><span>31.</span><p>مسٹر&nbsp;نعمان مینڈک کے دل کا پتہ لگانے اور تجزیہ کرنے میں مصروف تھے۔ شاید وہ ایک ہے:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>سیل بائیو لوجسٹ</p>
+</div><div class="En"><p>Cell biologist</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>ٹیکسانومیسٹ​​​​​​​</p>
+</div><div class="En"><p>Taxonomist</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="31-(C)"><span>(C)</span><div class="Ur"><p>ہسٹولوجسٹ</p>
+</div><div class="En"><p>Histologist</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>پیلےانٹولوجسٹ</p>
+</div><div class="En"><p>Palaeontologist</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="336303" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>32.</span><p>The study of the transmission of characteristics from parents to offspring is called:</p>
+</div><div class="col-6 UrduDiv"><span>32.</span><p>والدین سے اولاد میں خصوصیات کی منتقلی کا مطالعہ کہلاتا ہے:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>بائیو ٹیکنالوجی</p>
+</div><div class="En"><p>Biotechnology</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="32-(B)"><span>(B)</span><div class="Ur"><p>جینیٹکس</p>
+</div><div class="En"><p>Genetics</p>
+</div></li><li class="DualMcqs"><span>(C)</span><div class="Ur"><p>جیولوجی</p>
+</div><div class="En"><p>Geology</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>انفارمیشن ٹیکنالوجی</p>
+</div><div class="En"><p>Information technology</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="347666" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>33.</span><p>Being a biology research worker, you are studying "Markhor" which branch of biology it will be:</p>
+</div><div class="col-6 UrduDiv"><span>33.</span><p>بائیولوجی کے تحقیقی کارکن ہونے کے ناطے، آپ "مارخور" پڑھ رہے ہیں &nbsp;یہ بائیو لوجی کی کون سی شاخ ہے:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>باٹنی</p>
+</div><div class="En"><p>Botany</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="33-(B)"><span>(B)</span><div class="Ur"><p>ذو لوجی</p>
+</div><div class="En"><p>Zoology</p>
+</div></li><li class="DualMcqs"><span>(C)</span><div class="Ur"><p>پیلےانٹولوجی</p>
+</div><div class="En"><p>Palaeontology</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>پیرا سائٹولوجی</p>
+</div><div class="En"><p>Parasitology</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="336304" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>34.</span><p>The study of functions of living parts is called:</p>
+</div><div class="col-6 UrduDiv"><span>34.</span><p>جسمانی حصوں کے افعال کا مطالعہ کہلاتا ہے:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>ہسٹولوجی</p>
+</div><div class="En"><p>History</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>مارفولوجی</p>
+</div><div class="En"><p>Morphology</p>
+</div></li><li class="DualMcqs"><span>(C)</span><div class="Ur"><p>ایناٹومی</p>
+</div><div class="En"><p>Anatomy</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="34-(D)"><span>(D)</span><div class="Ur"><p>فزیالوجی</p>
+</div><div class="En"><p>Physiology</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="347667" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>35.</span><p>Which of the following profession deals with the diagnosis and treatment of diseases in human?</p>
+</div><div class="col-6 UrduDiv"><span>35.</span><p>مندرجہ ذیل میں سے کون سا پیشہ انسان میں بیماریوں کے اختراع اور علاج سے متعلق ہے؟</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="correctAnswer DualMcqs" thiscorrect="35-(A)"><span>(A)</span><div class="Ur"><p>میڈیسن</p>
+</div><div class="En"><p>Medicine</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>سرجری</p>
+</div><div class="En"><p>Surgery</p>
+</div></li><li class="DualMcqs"><span>(C)</span><div class="Ur"><p>بائیوٹیکنالوجی</p>
+</div><div class="En"><p>Biotechnology</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>فارمنگ</p>
+</div><div class="En"><p>Farming</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="336305" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>36.</span><p>Meaning of "logos" is:</p>
+</div><div class="col-6 UrduDiv"><span>36.</span><p>لوگوس کا معنی ہے:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>سرگرمی</p>
+</div><div class="En"><p>Activity</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>ساخت</p>
+</div><div class="En"><p>Structure</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="36-(C)"><span>(C)</span><div class="Ur"><p>سوچنا</p>
+</div><div class="En"><p>Thinking</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>فزیالوجی</p>
+</div><div class="En"><p>Physiology</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="347668" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>37.</span><p>Study of insects is called:</p>
+</div><div class="col-6 UrduDiv"><span>37.</span><p>کیڑوں کا مطالعہ کہلاتا ہے:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>امیونا لوجی</p>
+</div><div class="En"><p>Immunology</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="37-(B)"><span>(B)</span><div class="Ur"><p>اینٹا مولوجی</p>
+</div><div class="En"><p>Entomology</p>
+</div></li><li class="DualMcqs"><span>(C)</span><div class="Ur"><p>جینیٹکس</p>
+</div><div class="En"><p>Genetics</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>ایکا لوجی</p>
+</div><div class="En"><p>Ecology</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="336306" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>38.</span><p>The study of immune system of animals is called:</p>
+</div><div class="col-6 UrduDiv"><span>38.</span><p>جانوروں کے مدافعتی نظام کا مطالعہ کہلاتا ہے:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>پیراسائٹولوجی</p>
+</div><div class="En"><p>Parasitology&nbsp;</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="38-(B)"><span>(B)</span><div class="Ur"><p>امیونا لوجی</p>
+</div><div class="En"><p>&nbsp;Immunology&nbsp;</p>
+</div></li><li class="DualMcqs"><span>(C)</span><div class="Ur"><p>پیتھا لوجی</p>
+</div><div class="En"><p>Pathology</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>فارماکولوجی</p>
+</div><div class="En"><p>Pharmacology</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="347669" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>39.</span><p>The study of how living things interact with each other and their environment is known as:</p>
+</div><div class="col-6 UrduDiv"><span>39.</span><p>جاندار چیزیں ایک دوسرے اور ان کے ماحول کے ساتھ کس طرح تفاعل کرتی ہیں اس کا مطالعہ جانا جاتا ہے:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>فزیالوجی</p>
+</div><div class="En"><p>Physiology</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>ایناٹومی</p>
+</div><div class="En"><p>Anatomy</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="39-(C)"><span>(C)</span><div class="Ur"><p>ایکا لوجی</p>
+</div><div class="En"><p>Ecology</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>جینیٹکس</p>
+</div><div class="En"><p>Genetics</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="336307" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>40.</span><p>The study of fossils is called:</p>
+</div><div class="col-6 UrduDiv"><span>40.</span><p>فوسلز کے مطالعہ کو کہا جاتا ہے:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>جینیٹکس</p>
+</div><div class="En"><p>Genetics</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="40-(B)"><span>(B)</span><div class="Ur"><p>پیلےانٹولوجی</p>
+</div><div class="En"><p>Paleontology&nbsp;</p>
+</div></li><li class="DualMcqs"><span>(C)</span><div class="Ur"><p>ایمبریولوجی</p>
+</div><div class="En"><p>Embryology&nbsp;</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>فارماکولوجی</p>
+</div><div class="En"><p>Pharmacology</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="336308" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>41.</span><p>Study of drugs and their effects on human body is called:</p>
+</div><div class="col-6 UrduDiv"><span>41.</span><p>ادویات اور جسم پر ان کے اثرات کا مطالعہ کہلاتا ہے:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="correctAnswer DualMcqs" thiscorrect="41-(A)"><span>(A)</span><div class="Ur"><p>فارماکولوجی</p>
+</div><div class="En"><p>Pharmacology&nbsp;</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>پیرا سائٹولوجی</p>
+</div><div class="En"><p>Parasitology&nbsp;</p>
+</div></li><li class="DualMcqs"><span>(C)</span><div class="Ur"><p>پیتھا لوجی</p>
+</div><div class="En"><p>Pathology&nbsp;</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>میرین بائیو لوجی</p>
+</div><div class="En"><p>Marine biology</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="336309" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>42.</span><p>The study of biological molecules of life is called:</p>
+</div><div class="col-6 UrduDiv"><span>42.</span><p>زندگی کے بائیو لوجیکل مالیکیولز کا مطالعہ کہلاتا ہے:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>ایناٹومی</p>
+</div><div class="En"><p>Anatomy&nbsp;</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>امیونا لوجی</p>
+</div><div class="En"><p>Immunology&nbsp;</p>
+</div></li><li class="DualMcqs"><span>(C)</span><div class="Ur"><p>فزیالوجی</p>
+</div><div class="En"><p>Physiology&nbsp;</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="42-(D)"><span>(D)</span><div class="Ur"><p>مالیکیولر بائیو لوجی</p>
+</div><div class="En"><p>Molecular biology</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="336310" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>43.</span><p>Relationships between organism and their environment is called:</p>
+</div><div class="col-6 UrduDiv"><span>43.</span><p>جانداروں اور ان کے ماحول کے مابین تعلقات کہلاتے ہیں:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>ٹیکسانومی</p>
+</div><div class="En"><p>Taxonomy&nbsp;</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="43-(B)"><span>(B)</span><div class="Ur"><p>ایکا لوجی</p>
+</div><div class="En"><p>Ecology&nbsp;</p>
+</div></li><li class="DualMcqs"><span>(C)</span><div class="Ur"><p>فارماکولوجی</p>
+</div><div class="En"><p>Pharmacology&nbsp;</p>
+</div></li><li class="DualMcqs"><span>(D)</span><div class="Ur"><p>پیتھا لوجی</p>
+</div><div class="En"><p>Pathology</p>
+</div></li></ul></div></div><div class="MultipleOptions mycol-12"><div class="row TableHover" id="336311" onclick="CheckedSelectedValue(this)"><div class="col-6 EnglishDiv"><span>44.</span><p>Coral reef support a wide variety of:</p>
+</div><div class="col-6 UrduDiv"><span>44.</span><p>کورل ریف وسیع اقسام کی حمایت کرتا ہے:</p>
+</div><ul style="padding:0px; margin:0px; width:100%; direction:rtl;"><li class="DualMcqs"><span>(A)</span><div class="Ur"><p>میرین بائیو لوجی</p>
+</div><div class="En"><p>Marine biology&nbsp;</p>
+</div></li><li class="DualMcqs"><span>(B)</span><div class="Ur"><p>ہسٹولوجی</p>
+</div><div class="En"><p>Histology&nbsp;</p>
+</div></li><li class="DualMcqs"><span>(C)</span><div class="Ur"><p>دونوں</p>
+</div><div class="En"><p>Both&nbsp;</p>
+</div></li><li class="correctAnswer DualMcqs" thiscorrect="44-(D)"><span>(D)</span><div class="Ur"><p>ان میں&nbsp;کوئی نہیں</p>
+</div><div class="En"><p>None of these</p>
+</div></li></ul></div></div></div></div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-6">
+                            <a onclick="SelectRandom();" class="col-12 btn btn-sm btn-success">RANDOM SELECT <i class="fa-light fa-chevron-right"></i> </a>
+                        </div>
+                        <div class="col-6">
+                            <a onclick="AddEditQuestions('')" class="col-12 btn btn-sm btn-primary" id="AddQuestionPopup" style=""> ADD QUESTION'S <i class="fa-light fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="SelectedDiv" id="selectedQuestion"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form method="post" target="_blank" id="PrintSingle" action="/GeneratePaper/PrintPaperSingle2">
+        <input type="hidden" name="PrintQuestionsHtml" id="QuestionsHtmlSingle">
+        <input type="hidden" name="PrintAnswersHtml" id="AnswersHtmlSingle">
+        <input type="hidden" name="PrintTotalMarks" id="TotalMarksSingle">
+        <input type="hidden" name="PrintTotalMCQS" id="TotalMCQSSingle">
+        <input type="hidden" name="PrintSyllabusHtml" value="CHAP 1">
+        <input type="hidden" name="ClassName" value="9TH">
+        <input type="hidden" name="SubjectName" value="Biology">
+    <input name="__RequestVerificationToken" type="hidden" value="CfDJ8Cs9XGnXAahGmx_kGvuuNafeVo12jxG6Xmb_-y17YdLbxP4qB6ZdH-Qux35FTdJ1pZ8-ahcD4sVv0tN-_emW2Xws_nqr8TNus09r1sohuquk1ah50M2NcixGjMnS9OdwuSbCqK0AKgEbbGa0Y1cCpBA4Yx2jNGKJF7vdZNjnNJB7C4pat6scBkCaxHlG67ALyQ"></form>
+
+    <form method="post" target="_blank" id="PrintDouble" action="/GeneratePaper/PrintPaperDouble2">
+        <input type="hidden" name="PrintQuestionsHtml" id="QuestionsHtmlDouble">
+        <input type="hidden" name="PrintAnswersHtml" id="AnswersHtmlDouble">
+        <input type="hidden" name="PrintTotalMarks" id="TotalMarksDouble">
+        <input type="hidden" name="PrintTotalMCQS" id="TotalMCQSDouble">
+        <input type="hidden" name="PrintSyllabusHtml" value="CHAP 1">
+        <input type="hidden" name="ClassName" value="9TH">
+        <input type="hidden" name="SubjectName" value="Biology">
+    <input name="__RequestVerificationToken" type="hidden" value="CfDJ8Cs9XGnXAahGmx_kGvuuNafeVo12jxG6Xmb_-y17YdLbxP4qB6ZdH-Qux35FTdJ1pZ8-ahcD4sVv0tN-_emW2Xws_nqr8TNus09r1sohuquk1ah50M2NcixGjMnS9OdwuSbCqK0AKgEbbGa0Y1cCpBA4Yx2jNGKJF7vdZNjnNJB7C4pat6scBkCaxHlG67ALyQ"></form>
+
+    <form method="post" target="_blank" id="PrintHalf" action="/GeneratePaper/PrintPaperHalf2">
+        <input type="hidden" name="PrintQuestionsHtml" id="QuestionsHtmlHalf">
+        <input type="hidden" name="PrintAnswersHtml" id="AnswersHtmlHalf">
+        <input type="hidden" name="PrintTotalMarks" id="TotalMarksHalf">
+        <input type="hidden" name="PrintTotalMCQS" id="TotalMCQSHalf">
+        <input type="hidden" name="PrintSyllabusHtml" value="CHAP 1">
+        <input type="hidden" name="ClassName" value="9TH">
+        <input type="hidden" name="SubjectName" value="Biology">
+    <input name="__RequestVerificationToken" type="hidden" value="CfDJ8Cs9XGnXAahGmx_kGvuuNafeVo12jxG6Xmb_-y17YdLbxP4qB6ZdH-Qux35FTdJ1pZ8-ahcD4sVv0tN-_emW2Xws_nqr8TNus09r1sohuquk1ah50M2NcixGjMnS9OdwuSbCqK0AKgEbbGa0Y1cCpBA4Yx2jNGKJF7vdZNjnNJB7C4pat6scBkCaxHlG67ALyQ"></form>
+
+    <!-- Plugins -->
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/plugins/Jquery/jquery-2.1.3.min.js"></script>
+    <script src="/moment.js/moment.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/plugins/MDBootstrap/js/mdb.min.js"></script>
+    <script src="/plugins/datetimepicker/bootstrap-datetimepicker.js"></script>
+    <script src="/plugins/Theme/Theme.js"></script>
+    <script src="/plugins/toastr/toastr.min.js"></script>
+    <script src="/plugins/SweetAlert2/sweetalert2.all.min.js"></script>
+    <script src="/plugins/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+    <script src="/js/GeneratePaper7-min.js"></script>
+
+    <script>
+        $(document).keydown(function (event) {
+            // Ctrl+Shift+I pressed?
+            if (event.ctrlKey && event.shiftKey && event.keyCode == 'I'.charCodeAt(0)) {
+                alert("Developer Tool Not Allowed");
+                return false;
+            }
+
+            // Ctrl+C or Cmd+C pressed?
+            if ((event.ctrlKey || event.metaKey) && event.keyCode == 67) {
+                return false;
+            }
+
+            // Ctrl+X or Cmd+X pressed?
+            if ((event.ctrlKey || event.metaKey) && event.keyCode == 88) {
+                return false;
+            }
+
+            // Ctrl+S or Cmd+S pressed?
+            if ((event.ctrlKey || event.metaKey) && event.keyCode == 83) {
+                return false;
+            }
+
+            // Ctrl+U or Cmd+U pressed?
+            if ((event.ctrlKey || event.metaKey) && event.keyCode == 85) {
+                return false;
+            }
+
+            // F12 pressed?
+            if (event.keyCode == 123) {
+                return false;
+            }
+        });
+
+        // Form submit preloader
+        $(document).ready(function () {
+            $("#myform").on("submit", function () {
+                $('.pp-loader').fadeIn();
+            });
+        });
+
+        // Enter only numbers
+        function isNumber(evt) {
+            var iKeyCode = (evt.which) ? evt.which : evt.keyCode
+            if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
+                return false;
+            return true;
+        }
+
+        $(function () {
+            $('.datepicker').datetimepicker({
+                format: 'L'
+            });
+        });
+
+        // Open Questions Menu on Page Load
+        $(window).on('load', function () {
+            $('#QuestionsModal').modal('show');
+            ResetAll();
+            PrepareCheckbox();
+        });
+
+        function closeQuestionsModal() {
+            $('#QuestionsModal').modal('hide');
+        }
+
+        function PrepareCheckbox() {
+            document.getElementById("2Q").checked = true;
+        }
+
+        $(document).ready(function () {
+            $('#QuestionPeriority').multiselect({
+                includeSelectAllOption: true,
+                includeSelectAllIfMoreThan: 0,
+                nonSelectedText: 'Question Periority',
+                numberDisplayed: 1,
+                buttonWidth: '100%'
+            });
+        });
+
+        function content_editable() {
+            var value = $('.editable_content').attr('contenteditable');
+            if (value == 'false') {
+                $('.editable_content').attr('contenteditable', 'true');
+                $('.editable_content').css('border-style', 'dotted');
+                $('.editable_content').css('border-color', 'red');
+            }
+            else {
+                $('.editable_content').attr('contenteditable', 'false');
+                $('.editable_content').css('border-style', 'none');
+            }
+        }
+
+        $("#AddQuestionPopup").click(function () {
+            $("hr.blankLine").css("display", "block")
+        });
+
+        function Up(e) {
+            var wrapper = $(e).closest('div')
+            wrapper.insertBefore(wrapper.prev())
+        }
+
+        function Down(e) {
+            var wrapper = $(e).closest('div')
+            wrapper.insertAfter(wrapper.next())
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Arial Narrow', 'Jameel Noori Nastaleeq';
+            -webkit-print-color-adjust: exact !important;
+        }
+
+        @media print {
+            body {
+                background-color: #000 !important;
+            }
+
+            section {
+                display: none !important;
+            }
+
+            .UrduDiv {
+                color: #fff !important;
+            }
+
+            .EnglishDiv {
+                color: #fff !important;
+            }
+        }
+
+        .form-control-sm {
+            border: 1px solid #ced4da;
+            border-radius: 0.375rem;
+        }
+
+        @font-face {
+            font-family: 'Arial Narrow';
+            src: local('Arial Narrow') format('truetype');
+            src: url('/fonts/ARIALN.TTF') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Jameel Noori Nastaleeq';
+            src: local('Jameel Noori Nastaleeq') format('truetype');
+            src: url('/fonts/Jameel Noori Nastaleeq.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Batool';
+            src: local('Batool') format('truetype');
+            src: url('/fonts/Batool.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Al Qalam Quran Majeed Web';
+            src: local('Al Qalam Quran Majeed Web') format('truetype');
+            src: url('/fonts/Al Qalam Quran Majeed Web.ttf') format('truetype');
+        }
+    </style>
+
+<div class="modal-backdrop fade show"></div></body></html>
